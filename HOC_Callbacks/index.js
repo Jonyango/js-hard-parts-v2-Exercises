@@ -63,7 +63,9 @@ function forEach(array, callback) {
 
 // Challenge 5
 function mapWith(array, callback) {
-    forEach(array,callback);
+    let output=[];
+    output.push(forEach(array,callback));
+    return output;
 
 }
 
