@@ -81,21 +81,42 @@ function reduce(array, callback, initialValue) {
 }
 
 
+
 // Challenge 7
-function intersection(arrays) {
+
+// Creating a helper function that will compare the elements in each array. and return a new array with common elements.
+function findCommonElements(firstArray, secondArray){
+    const outputArray=[];
+    for(let i=0; i<firstArray.length; i++){
+        for(let j=0; j<secondArray.length; j++){
+            if(firstArray[i]===secondArray[j]){
+                outputArray.push(firstArray[i]);
+            }
+        }
+    }
+
+    return outputArray;
 
 }
 
-// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+function intersection(...arrays) {
+    return reduce(arrays, findCommonElements, arrays[0]);
+
+}
+
+console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
 
 
 // Challenge 8
+// Have a function that find common elements between arrays, removing duplicates and adding the ones unique to each array.
+
 function union(arrays) {
+    
 
 }
 
-// console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
