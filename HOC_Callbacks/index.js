@@ -131,15 +131,23 @@ return [].concat(...arrays);
 }
 
 // function to remove duplicates.
+function removeCommonElements(arrayA, arrayB){
+  forEach(arrayB, function(item) {
+    if (arrayA.indexOf(item) === -1) {
+        arrayA.push(item);
+    }
+});
+return arrayA;
+
+}
 function union(...arrays) {
-    return reduce(arrays, findCommonElements, arrays[0]);
-    
+  return reduce(arrays, removeCommonElements, arrays[0]);    
 
 }
 
-console.log(mergeArraysConcat([5,10,15],[100,15,10,1,5],[15,88,1,5,7]));
+// console.log(mergeArraysConcat([5,10,15],[100,15,10,1,5],[15,88,1,5,7]));
 
-// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
