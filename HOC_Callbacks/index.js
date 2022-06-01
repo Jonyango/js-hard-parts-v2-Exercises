@@ -109,14 +109,37 @@ console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
 
 
 // Challenge 8
-// Have a function that find common elements between arrays, removing duplicates and adding the ones unique to each array.
+// Have a function that merge all the elements of each array to one array. Then remove duplicates in the new array.
+// This method is limited because you can only merge 2 arrays.
+// function mergeArrays(array1, array2){
+//   let newArray=[];
 
-function union(arrays) {
+//   for(let i=0; i< array1.length; i++){
+//     newArray.push(array1[i]);
+//   }
+
+//   for(let j=0; j< array2.length; j++){
+//     newArray.push(array2[j]);
+//   }
+
+//   return newArray;
+// }
+
+// merging arrays using the concatenate method
+function mergeArraysConcat(...arrays){
+return [].concat(...arrays);
+}
+
+// function to remove duplicates.
+function union(...arrays) {
+    return reduce(arrays, findCommonElements, arrays[0]);
     
 
 }
 
-console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+console.log(mergeArraysConcat([5,10,15],[100,15,10,1,5],[15,88,1,5,7]));
+
+// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
